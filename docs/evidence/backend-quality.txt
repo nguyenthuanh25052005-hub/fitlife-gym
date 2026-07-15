@@ -1,0 +1,94 @@
+$ npm run init-db
+
+> fitlife-gym-backend@1.0.0 init-db
+> node src/database/init.js
+
+FitLife Gym database schema created successfully
+Connected to FitLife SQLite database
+
+$ npm run seed
+
+> fitlife-gym-backend@1.0.0 seed
+> node src/database/seed.js
+
+Connected to FitLife SQLite database
+FitLife seed data inserted successfully
+
+$ npm run lint
+
+> fitlife-gym-backend@1.0.0 lint
+> eslint src tests
+
+
+$ npm run test:ci
+
+> fitlife-gym-backend@1.0.0 test:ci
+> jest --coverage --runInBand
+
+PASS tests/userAdminConsultation.test.js
+PASS tests/coverageBoost.test.js
+PASS tests/trainers.test.js
+PASS tests/members.test.js
+PASS tests/authDashboard.test.js
+PASS tests/operations.test.js
+PASS tests/qualityBranches.test.js
+PASS tests/plansMemberships.test.js
+-----------------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                              
+-----------------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------
+All files                    |   89.31 |    80.96 |   99.58 |   92.97 |                                                                                                                
+ src                         |     100 |      100 |     100 |     100 |                                                                                                                
+  app.js                     |     100 |      100 |     100 |     100 |                                                                                                                
+ src/database                |   76.19 |    57.14 |     100 |   76.19 |                                                                                                                
+  db.js                      |      50 |       50 |     100 |      50 | 4-7                                                                                                            
+  sqliteDb.js                |   86.66 |    66.66 |     100 |   86.66 | 8,10                                                                                                           
+ src/middleware              |     100 |      100 |     100 |     100 |                                                                                                                
+  authMiddleware.js          |     100 |      100 |     100 |     100 |                                                                                                                
+  observabilityMiddleware.js |     100 |      100 |     100 |     100 |                                                                                                                
+  roleMiddleware.js          |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/admin           |     100 |    96.22 |     100 |     100 |                                                                                                                
+  adminController.js         |     100 |    96.22 |     100 |     100 | 53-54                                                                                                          
+  adminRoutes.js             |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/auth            |     100 |    97.56 |     100 |     100 |                                                                                                                
+  authController.js          |     100 |    97.56 |     100 |     100 | 189                                                                                                            
+  authRoutes.js              |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/bookings        |   96.92 |    97.61 |     100 |   96.92 |                                                                                                                
+  bookingController.js       |   96.36 |    97.61 |     100 |   96.36 | 70-71                                                                                                          
+  bookingRoutes.js           |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/checkins        |   96.96 |    90.47 |     100 |   96.96 |                                                                                                                
+  checkinController.js       |   95.83 |    90.47 |     100 |   95.83 | 112                                                                                                            
+  checkinRoutes.js           |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/classes         |   97.56 |    93.02 |     100 |   97.56 |                                                                                                                
+  classController.js         |   96.66 |    93.02 |     100 |   96.66 | 189                                                                                                            
+  classRoutes.js             |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/consultations   |     100 |      100 |     100 |     100 |                                                                                                                
+  consultationController.js  |     100 |      100 |     100 |     100 |                                                                                                                
+  consultationRoutes.js      |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/members         |   81.65 |    65.88 |   96.15 |   81.65 |                                                                                                                
+  memberController.js        |   79.16 |    65.88 |   96.15 |   79.16 | 29-30,80,88,129,217,240,253,260,283,317-319,345,371,378,395,424,450,457,468                                    
+  memberRoutes.js            |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/memberships     |   99.01 |    89.55 |     100 |   99.01 |                                                                                                                
+  membershipController.js    |   98.86 |    89.55 |     100 |   98.86 | 263                                                                                                            
+  membershipRoutes.js        |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/payments        |     100 |    96.29 |     100 |     100 |                                                                                                                
+  paymentController.js       |     100 |    96.29 |     100 |     100 | 5-6,163                                                                                                        
+  paymentRoutes.js           |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/plans           |   97.95 |    97.61 |     100 |   97.95 |                                                                                                                
+  planController.js          |   97.29 |    97.61 |     100 |   97.29 | 194                                                                                                            
+  planRoutes.js              |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/reports         |     100 |      100 |     100 |     100 |                                                                                                                
+  reportController.js        |     100 |      100 |     100 |     100 |                                                                                                                
+  reportRoutes.js            |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/trainers        |   80.23 |    62.68 |     100 |   80.23 |                                                                                                                
+  trainerController.js       |   76.71 |    62.68 |     100 |   76.71 | 19,51,80,101,150,157,185,215-217,262,269,290,315,343,350,373,397                                               
+  trainerRoutes.js           |     100 |      100 |     100 |     100 |                                                                                                                
+ src/modules/user            |   76.16 |    64.22 |     100 |   88.27 |                                                                                                                
+  userController.js          |    74.3 |    64.22 |     100 |   87.16 | 38,108,117,136,144,168,198,217,246,261,271-273,278-289,307,337,411,444,503,528,557,583,608,635,655,671,694,755 
+  userRoutes.js              |     100 |      100 |     100 |     100 |                                                                                                                
+-----------------------------|---------|----------|---------|---------|----------------------------------------------------------------------------------------------------------------
+
+Test Suites: 8 passed, 8 total
+Tests:       142 passed, 142 total
+Snapshots:   0 total
+Time:        4.435 s, estimated 5 s
+Ran all test suites.

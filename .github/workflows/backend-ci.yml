@@ -1,0 +1,32 @@
+name: FitLife Level 1 CI
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  backend-quality:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - name: Prepare SQLite baseline
+        run: |
+          npm run init-db
+          npm run seed
+      - run: npm run lint
+      - run: npm run test:ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage
+          path: backend/coverage

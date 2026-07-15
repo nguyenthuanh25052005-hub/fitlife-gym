@@ -1,0 +1,75 @@
+{
+  "name": "fitlife-gym-backend",
+  "version": "1.0.0",
+  "description": "FitLife Gym Management Backend - SPQM Project",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "init-db": "node src/database/init.js",
+    "seed": "node src/database/seed.js",
+    "test": "jest --coverage --runInBand",
+    "test:ci": "jest --coverage --runInBand",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix",
+    "quality": "npm run lint && npm run test:ci",
+    "security:audit": "npm audit --audit-level=high",
+    "init-db:postgres": "node src/database/initPostgres.js",
+    "seed:postgres": "node src/database/seedPostgres.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js",
+      "!src/database/seed.js",
+      "!src/database/init.js",
+      "!src/database/initPostgres.js",
+      "!src/database/seedPostgres.js",
+      "!src/database/postgresDb.js"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "json-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    },
+    "setupFiles": [
+      "<rootDir>/tests/setupEnv.js"
+    ]
+  },
+  "keywords": [
+    "fitlife",
+    "gym",
+    "management",
+    "spqm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4",
+    "globals": "^17.7.0",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.1.4"
+  },
+  "optionalDependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}

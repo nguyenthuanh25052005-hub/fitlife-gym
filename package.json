@@ -1,0 +1,15 @@
+{
+  "name": "fitlife-spqm",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {
+    "quality:backend": "npm --prefix backend run quality",
+    "quality:frontend": "npm --prefix frontend run lint && npm --prefix frontend run build",
+    "quality:level1": "npm run quality:backend && npm run quality:frontend",
+    "verify:spqm": "node scripts/verify-spqm.js",
+    "services:syntax": "python -m compileall -q services",
+    "compose:check": "docker compose config --quiet",
+    "load:test": "docker compose --profile loadtest run --rm k6",
+    "infra:static": "python scripts/validate-infrastructure.py"
+  }
+}

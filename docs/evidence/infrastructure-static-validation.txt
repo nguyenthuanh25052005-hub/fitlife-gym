@@ -1,0 +1,14 @@
+PASS - Docker Compose YAML parses
+PASS - Docker Compose contains required services (all present)
+PASS - Prometheus configuration parses
+PASS - Prometheus has core plus 3 service jobs
+PASS - JSON parses: infra/grafana/dashboards/fitlife-overview.json
+PASS - JSON parses: docs/evidence/coverage-summary.json
+PASS - Workflow YAML parses: backend-ci.yml
+PASS - Workflow has triggers: backend-ci.yml
+PASS - Workflow YAML parses: quality-gate.yml
+PASS - Workflow has triggers: quality-gate.yml
+PASS - PostgreSQL-compatible status SQL literals
+PASS - Three FastAPI service entrypoints
+
+Result: 12/12 static infrastructure checks passed.
