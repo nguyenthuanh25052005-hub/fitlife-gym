@@ -39,3 +39,4 @@ backend/.env
 backend/fitlife.db
 backend/coverage/
 frontend/dist/
+.scannerwork/
